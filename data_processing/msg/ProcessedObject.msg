@@ -1,3 +1,5 @@
-string object_class
+int32 object_id
 float64 distance_m
-string risk_level
+int32 risk_level
+geometry_msgs/Point relative_position
+geometry_msgs/Point global_position
