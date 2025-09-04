@@ -59,46 +59,57 @@
 - **Jsetpack** : 4.6.4
 
 ## 실행 방법
-### 시스템 설치 및 빌드
+### infra system 설치 및 실행
 ```bash
 
 # ubuntu 20.04
 
-# 1. Create Workspace
-$ mkdir -p ~/ivs_ws/src
-$ cd ~/ivs_ws/src
+# 1. Clone Packages
+$ cd ~
+$ git clone https://github.com/IVS-team/2025ESWContest_free_1191.git
+$ cd ~/2025ESWContest_free_1191
 
-# 2. Clone Packages
-#   1) clone our packages
-$ git clone https://github.com/username/our_ros_package.git
-#   2) clone gps packages
-$ git clone  https://github.com/ros-drivers/nmea_navsat_driver/tree/melodic-devel
+# 2. remove another package
+$ rm -rf vehicle_ws
 
 # 3. Build and Source (catkin_make)
-$ cd ~/ivs_ws
+$ cd ~/2025ESWContest_free_1191/infra_ws
 $ catkin_make
-$ source ~/ivs_ws/devel/setup.bash
-```
+$ source ~/2025ESWContest_free_1191/infra_ws/devel/setup.bash
 
-### 1. Infra System 실행
-```bash
-# 1. Execute roscore
-$ roscore
-
-# 2. (Open a new terminal) Move to infra package
-$ cd ~/ivs_ws/src/infra
-
-# 3. Execute infra system
+# 4. Execute infra system
+$ cd ~/2025ESWContest_free_1191/infra_ws/src/infra
 $ python3 infra.py
 ```
-
-### 2. Vehicle System 실행
+### Vehicle System 설치 및 실행
 ```bash
+# ubuntu 18.04
 
-# 1. Execute GPS node
+# 1. Clone Packages
+$ cd ~
+$ cd ~/2025ESWContest_free_1191
+
+# 2. remove another package
+$ rm -rf infra_ws
+
+# 3. install dependency packages
+cd ~/2025ESWContest_free_1191/vehicle_ws/src
+$ git clone https://github.com/IVS-team/2025ESWContest_free_1191.git
+# git clone https://github.com/ros-drivers/nmea_navsat_driver.git
+$ git clone https://github.com/jeskesen/i2c_imu
+
+# 4. Build and Source (catkin_make)
+$ cd ~/2025ESWContest_free_1191/vehicle_ws
+$ catkin_make
+$ source ~/2025ESWContest_free_1191/vehicle_ws/devel/setup.bash
+
+# 5. Execute dependency packages
+#   1. Execute GPS node
 $ roslaunch nmea_navsat_driver nmea_serial_driver.launch
+#   2. Execute IMU node
+$ roslaunch i2c_imu_node i2c_imu_auto.launch
 
-# 2. Excute vehicle system
+# 6. Excute vehicle system
 #   1) data processing node
 $ rosrun data_processing data_processing node
 #   2) user interface node
