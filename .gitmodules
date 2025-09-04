@@ -1,0 +1,4 @@
+[submodule "src/RTIMULib"]
+	url = https://github.com/RPi-Distro/RTIMULib
+[submodule "src/i2c_imu"]
+	url = https://github.com/jeskesen/i2c_imu
