@@ -1,4 +1,4 @@
 [submodule "src/RTIMULib"]
 	url = https://github.com/jetsonhacks/RTIMULib.git
 [submodule "src/i2c_imu"]
-	url = https://github.com/jeskesen/i2c_imu
+	url = https://github.com/jeskesen/i2c_imu.git
