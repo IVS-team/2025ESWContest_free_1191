@@ -95,7 +95,7 @@ $ rm -rf infra_ws
 # 3. install dependency packages
 cd ~/2025ESWContest_free_1191/vehicle_ws/src
 $ git clone https://github.com/IVS-team/2025ESWContest_free_1191.git
-# git clone https://github.com/ros-drivers/nmea_navsat_driver.git
+$ git clone https://github.com/ros-drivers/nmea_navsat_driver.git
 $ git clone https://github.com/jeskesen/i2c_imu
 
 # 4. Build and Source (catkin_make)
