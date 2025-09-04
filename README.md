@@ -109,13 +109,10 @@ $ rosrun interface_node interface.py
 ## Related Works
 
 **IMU**
-
-1. [i2c_imu](https://github.com/jeskesen/i2c_imu#)
-2. [RTIMULib](https://github.com/RPi-Distro/RTIMULib#)
+[i2c_imu](https://github.com/jeskesen/i2c_imu#)
    
 **GPS**
-
-1. [navsat_driver](https://github.com/ros-drivers/nmea_navsat_driver): melodic
+[navsat_driver](https://github.com/ros-drivers/nmea_navsat_driver): melodic
 
 
 
