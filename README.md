@@ -52,8 +52,10 @@ $ cd ~/ivs_ws/src
 # 2. Clone Packages
 #   1) clone our packages
 $ git clone https://github.com/username/our_ros_package.git
-#   2) clone gps packages
+#   2) clone vehicle GPS packages
 $ git clone  https://github.com/ros-drivers/nmea_navsat_driver/tree/melodic-devel
+#   3) clone vehicle IMU packages
+$ git clone  [https://github.com/ros-drivers/nmea_navsat_driver/tree/melodic-devel](https://github.com/jeskesen/i2c_imu.git)
 
 # 3. Build and Source (catkin_make)
 $ cd ~/ivs_ws
@@ -76,8 +78,11 @@ $ python3 infra.py
 ### 2. Vehicle System 실행
 ```bash
 
-# 1. Execute GPS node
+# 1. Execute GPS and IMU node
+#   1) GPS node
 $ roslaunch nmea_navsat_driver nmea_serial_driver.launch
+#   2) IMU node
+$ roslaunch i2c_imu_node i2c_imu_auto.launch
 
 # 2. Excute vehicle system
 #   1) data processing node
