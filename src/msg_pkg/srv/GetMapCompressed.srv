@@ -1,0 +1,8 @@
+
+---
+bool success
+string message
+sensor_msgs/CompressedImage image
+geometry_msgs/Point[4] image_points_px
+geometry_msgs/Point[4] map_tm_points
+geometry_msgs/Vector3 yaw0_unit

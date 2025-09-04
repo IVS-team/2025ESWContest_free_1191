@@ -1,0 +1,5 @@
+int32 object_id
+float64 relative_distance
+int32 risk_level
+geometry_msgs/Point relative_position
+geometry_msgs/Point global_position
