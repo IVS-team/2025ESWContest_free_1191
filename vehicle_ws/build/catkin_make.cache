@@ -1,0 +1,2 @@
+data_processing:i2c_imu:interface_node:msg_pkg:nmea_navsat_driver-melodic-devel
+-DCATKIN_DEVEL_PREFIX=/home/nano/vehicle_ws/devel -DCMAKE_INSTALL_PREFIX=/home/nano/vehicle_ws/install -G Unix Makefiles

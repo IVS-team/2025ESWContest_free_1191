@@ -51,7 +51,7 @@ public:
 
 private:
     std::mutex imu_mtx;
-    std::deque<ImuData> imu_bufffer;
+    std::deque<ImuData> imu_buffer;
     const size_t IMU_BUF_MAX = 500;
     double vehicle_yaw = 0.0;
     ros::Time last_gps_time;

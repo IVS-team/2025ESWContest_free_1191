@@ -1,0 +1,8 @@
+prefix=/home/nano/vehicle_ws/devel
+
+Name: interface_node
+Description: Description of interface_node
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs rospy std_msgs message_runtime

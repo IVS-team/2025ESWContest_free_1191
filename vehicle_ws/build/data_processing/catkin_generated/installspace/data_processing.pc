@@ -1,0 +1,8 @@
+prefix=/home/nano/vehicle_ws/install
+
+Name: data_processing
+Description: Description of data_processing
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp std_msgs sensor_msgs message_filters message_runtime geometry_msgs msg_pkg roslib

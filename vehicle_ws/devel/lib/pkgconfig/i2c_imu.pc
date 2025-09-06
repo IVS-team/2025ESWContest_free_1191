@@ -1,0 +1,8 @@
+prefix=/home/nano/vehicle_ws/devel
+
+Name: i2c_imu
+Description: Description of i2c_imu
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: sensor_msgs roscpp tf angles

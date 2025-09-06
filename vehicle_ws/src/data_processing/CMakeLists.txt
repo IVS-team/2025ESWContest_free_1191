@@ -12,20 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
   roslib
 )
 
-add_message_files(
-  FILES
-  DetectedObject.msg
-  DetectedObjectArray.msg
-  ProcessedObject.msg
-  ProcessedObjectArray.msg
-)
-
-generate_messages(
-  DEPENDENCIES
-  std_msgs
-  geometry_msgs
-)
-
 catkin_package(
   # LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS
@@ -46,7 +32,8 @@ include_directories(
 )
 
 add_executable(data_processing_node src/main.cpp src/processing.cpp src/topview_srv.cpp)
-add_dependencies(data_processing_node ${PROJECT_NAME}_generate_messages_cpp)
+add_dependencies(data_processing_node ${catkin_EXPORTED_TARGETS})
+
 
 target_link_libraries(data_processing_node
   ${catkin_LIBRARIES}

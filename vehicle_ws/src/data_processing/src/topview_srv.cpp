@@ -21,7 +21,14 @@ namespace{
 }
 
 bool call_and_save_topview_map(ros::NodeHandle& nh)
-{
+{  
+  msg_pkg::GetMapCompressed srv;
+
+  const auto& cim = srv.response.image;               // 압축 이미지
+  const auto& px  = srv.response.image_points_px;     // 픽셀 4점
+  const auto& tm  = srv.response.map_tm_points;       // TM 4점
+  const auto& u   = srv.response.yaw0_unit;           // 단위벡터(ux,uy)
+
   // /infra_node/get_map_png 서비스 호출
   ros::ServiceClient client =
       nh.serviceClient<msg_pkg::GetMapCompressed>("/infra_node/get_map_png");
@@ -32,7 +39,6 @@ bool call_and_save_topview_map(ros::NodeHandle& nh)
     return false;
   }
 
-  msg_pkg::GetMapCompressed srv;
   if (!client.call(srv) || !srv.response.success) {
     ROS_ERROR("service call failed: %s", srv.response.message.c_str());
     return false;
@@ -42,10 +48,7 @@ bool call_and_save_topview_map(ros::NodeHandle& nh)
     return false;
   }
 
-  const auto& cim = srv.response.image;               // 압축 이미지
-  const auto& px  = srv.response.image_points_px;     // 픽셀 4점
-  const auto& tm  = srv.response.map_tm_points;       // TM 4점
-  const auto& u   = srv.response.yaw0_unit;           // 단위벡터(ux,uy)
+
 
   // 압축 맵 이미지를 config/topview_map.* 로 저장
   const std::string pkg_path = ros::package::getPath("data_processing");
